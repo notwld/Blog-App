@@ -21,26 +21,26 @@ exports.show = (req, res, next) => {
 }
 
 
-exports.show = async(req, res, next) => {
+// exports.show = async(req, res, next) => {
 
-    //if user doesn't enter the article slug
-    if (!req.params.slug) {
-        return next(new Error('No article slug.'));
-    }
+//     //if user doesn't enter the article slug
+//     if (!req.params.slug) {
+//         return next(new Error('No article slug.'));
+//     }
 
-    try{
-        article = await req.collections.articles.findOne({ slug: req.params.slug });
-    }
-    catch(error){
-        return next(error);
-    }
-    //if the article is not published
-    if (!article.published) {
-        return res.status(401).send();
-    }
+//     try{
+//         article = await req.collections.articles.findOne({ slug: req.params.slug });
+//     }
+//     catch(error){
+//         return next(error);
+//     }
+//     //if the article is not published
+//     if (!article.published) {
+//         return res.status(401).send();
+//     }
 
-    res.render("article", article);
-}
+//     res.render("article", article);
+// }
 
 
 //when admin sends get request to view all the articles
